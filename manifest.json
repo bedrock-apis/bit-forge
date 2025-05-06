@@ -1,0 +1,36 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "BitForge",
+		"description": "Funny Cool Project",
+		"uuid": "aacf241d-f74a-47f2-b684-b98515891b63",
+		"version": [1,0,0],
+		"min_engine_version": [1,21,70]
+	},
+	"modules": [
+		{
+			"description": "",
+			"type": "data",
+			"uuid": "3b268756-c3b3-42d2-b3d5-ae17c18101ce",
+			"version": [1,0,0]
+		},
+		{
+			"description": "",
+			"language": "javascript",
+			"type": "script",
+			"uuid": "d434a2b3-0cdb-4189-85cd-f3baeb1afada",
+			"version": [1,0,0],
+			"entry": "scripts/main.js"
+		}
+	],
+	"dependencies": [
+		{
+			"module_name": "@minecraft/server",
+			"version": "2.1.0-beta"
+		},
+		{
+			"module_name": "@minecraft/debug-utilities",
+			"version": "1.0.0-beta"
+		}
+	]
+}
