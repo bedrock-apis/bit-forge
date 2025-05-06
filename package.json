@@ -1,0 +1,17 @@
+{
+  "name": "bit-forge",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.10.0",
+  "devDependencies": {
+    "oxlint": "^0.16.9",
+    "rolldown": "1.0.0-beta.8"
+  }
+}
