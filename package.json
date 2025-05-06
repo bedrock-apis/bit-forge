@@ -13,5 +13,9 @@
   "devDependencies": {
     "oxlint": "^0.16.9",
     "rolldown": "1.0.0-beta.8"
+  },
+  "dependencies": {
+    "@minecraft/debug-utilities": "^1.0.0-beta.1.21.90-preview.21",
+    "@minecraft/server": "^2.0.0-beta.1.21.80-stable"
   }
 }
