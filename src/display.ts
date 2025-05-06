@@ -1,4 +1,6 @@
+import { DebugBox, debugDrawer, DebugShape } from "@minecraft/debug-utilities";
 import { RGBA, Vector3 } from "@minecraft/server";
+import { normalizeRGB } from "./utility";
 
 class Display {
     private _buffer: Uint32Array;
@@ -72,10 +74,31 @@ class Display {
             z: this.displayOrigin.z,
         }
 
-
+        const shapes: DebugShape[] = [];
         for (let i = 0; i < this._buffer.length; i++) {
             //Finish later lmao
+            const pixelPos = {
+                x: pixelOrigin.x + (i % this.width) * this.pixelSize,
+                y: pixelOrigin.y + Math.floor(i / this.width) * this.pixelSize,
+                z: pixelOrigin.z
+            }
+            const color = this._buffer[i];
+            const pixelColor = {
+                red: (color >> 16) & 0xFF,
+                green: (color >> 8) & 0xFF,
+                blue: color & 0xFF,
+            }
+            
+            const pixelAlpha = (color >> 24) & 0xFF;
+            if (pixelAlpha <= 0.5) continue; //Skip if the pixel is mostly transparent
+            const shape = new DebugBox(pixelPos)
+            shape.color = normalizeRGB(pixelColor);
+            shape.scale = this.pixelSize;
+            shapes.push(shape);
         }
+        shapes.forEach(shape => {
+            debugDrawer.addShape(shape)
+        });
     }
 }
 
