@@ -1,6 +1,6 @@
 import { DebugBox, debugDrawer, DebugShape } from "@minecraft/debug-utilities";
 import { RGBA, Vector3 } from "@minecraft/server";
-import { normalizeRGB } from "./utility";
+import { ColorUtilities } from "./utility";
 
 class Display {
     private _buffer: Uint32Array;
@@ -92,7 +92,7 @@ class Display {
             const pixelAlpha = (color >> 24) & 0xFF;
             if (pixelAlpha <= 0.5) continue; //Skip if the pixel is mostly transparent
             const shape = new DebugBox(pixelPos)
-            shape.color = normalizeRGB(pixelColor);
+            shape.color = ColorUtilities.normalizeRGB(pixelColor);
             shape.scale = this.pixelSize;
             shapes.push(shape);
         }
